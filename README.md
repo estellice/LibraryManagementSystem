@@ -1,0 +1,109 @@
+﻿
+This separation ensures:
+- Maintainability
+- Testability
+- Clear responsibility per layer
+
+---
+
+## Domain Models (Entities)
+
+### Book
+- Id
+- ISBN
+- Title
+- Author
+- Category
+- IsAvailable
+
+### Member
+- Id
+- Name
+- Email
+- Phone
+
+### Loan
+- Id
+- BookId
+- MemberId
+- BorrowDate
+- ReturnDate
+
+---
+
+## Database Design
+
+Tables:
+- Books
+- Members
+- Loans
+
+Relationships:
+- One Book → Many Loans
+- One Member → Many Loans
+
+Primary Keys:
+- Books(BookId)
+- Members(MemberId)
+- Loans(LoanId)
+
+Foreign Keys:
+- Loans.BookId → Books.BookId
+- Loans.MemberId → Members.MemberId
+
+---
+
+## API Endpoints
+
+### Books
+- GET    /api/books
+- GET    /api/books/{id}
+- POST   /api/books
+- PUT    /api/books/{id}
+- DELETE /api/books/{id}
+
+### Members
+- GET    /api/members
+- POST   /api/members
+
+### Loans
+- POST   /api/loans/borrow
+- POST   /api/loans/return
+- GET    /api/loans
+
+---
+
+## Object-Oriented Principles Applied
+
+- **Encapsulation**  
+  Each entity exposes only necessary properties and behaviors.
+
+- **Abstraction**  
+  Service and Repository interfaces hide implementation details.
+
+- **Inheritance**  
+  Common base entities and shared logic are reused.
+
+- **Polymorphism**  
+  Interfaces allow multiple implementations and flexible dependency injection.
+
+- **Single Responsibility Principle (SRP)**  
+  Controllers, Services, Repositories, and Domain Models each handle one responsibility.
+
+---
+
+## How to Run
+
+1. Clone the repository
+2. Open the solution in Visual Studio 2022+
+3. Update the connection string in `appsettings.json`
+4. Run database migration (if applicable)
+5. Press F5 to start the API
+6. Open Swagger UI:  
+   `https://localhost:<port>/swagger`
+
+---
+
+## Author
+Estelle Phang  
+Senior Backend Developer (.NET / SQL Server)

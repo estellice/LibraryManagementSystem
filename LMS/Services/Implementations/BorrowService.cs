@@ -25,15 +25,15 @@ public class BorrowService : IBorrowService
             BorrowDate = DateTime.UtcNow
         };
 
-        _context.Loans.Add(borrow);
+        _context.Borrows.Add(borrow);
         _context.SaveChanges();
     }
 
     public void ReturnBook(int borowId)
     {
-        var loan = _context.Loans.FirstOrDefault(l => l.Id == borowId);
+        var loan = _context.Borrows.FirstOrDefault(l => l.Id == borowId);
         if (loan == null)
-            throw new Exception("Loan record not found");
+            throw new Exception("Borrow record not found");
 
         loan.ReturnDate = DateTime.UtcNow;
 

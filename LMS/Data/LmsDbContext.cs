@@ -13,6 +13,6 @@ namespace LMS.Data
 
         public DbSet<Book> Books { get; set; }
         public DbSet<Member> Members { get; set; }
-        public DbSet<Borrow> Loans { get; set; }
+        public DbSet<Borrow> Borrows { get; set; }
     }
 }

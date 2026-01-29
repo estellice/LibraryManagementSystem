@@ -2,11 +2,11 @@
 
 [ApiController]
 [Route("api/[controller]")]
-public class LoansController : ControllerBase
+public class BorrowController : ControllerBase
 {
     private readonly IBorrowService _borrowService;
 
-    public LoansController(IBorrowService borrowService)
+    public BorrowController(IBorrowService borrowService)
     {
         _borrowService = borrowService;
     }
@@ -19,9 +19,9 @@ public class LoansController : ControllerBase
     }
 
     [HttpPost("return")]
-    public IActionResult Return(int loanId)
+    public IActionResult Return(int borrowId)
     {
-        _borrowService.ReturnBook(loanId);
+        _borrowService.ReturnBook(borrowId);
         return Ok("Book returned successfully.");
     }
 }

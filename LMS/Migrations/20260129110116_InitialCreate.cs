@@ -28,7 +28,7 @@ namespace LMS.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Loans",
+                name: "Borrows",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -40,7 +40,7 @@ namespace LMS.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Loans", x => x.Id);
+                    table.PrimaryKey("PK_Borrows", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -50,7 +50,12 @@ namespace LMS.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastLogin = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    IsDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    IsActive = table.Column<bool>(type: "bit", nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -65,7 +70,7 @@ namespace LMS.Migrations
                 name: "Books");
 
             migrationBuilder.DropTable(
-                name: "Loans");
+                name: "Borrows");
 
             migrationBuilder.DropTable(
                 name: "Members");
