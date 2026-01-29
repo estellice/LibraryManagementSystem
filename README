@@ -20,7 +20,11 @@ This separation ensures:
 - Id
 - Name
 - Email
-- Phone
+- LastLogin
+- IsDeleted
+- IsActive
+- CreatedAt
+- UpdatedAt
 
 ### Loan
 - Id
@@ -39,17 +43,17 @@ Tables:
 - Loans
 
 Relationships:
-- One Book → Many Loans
-- One Member → Many Loans
+- One Book → Many Borrows
+- One Member → Many Borrows
 
 Primary Keys:
 - Books(BookId)
 - Members(MemberId)
-- Loans(LoanId)
+- Borrows(BorrowId)
 
 Foreign Keys:
-- Loans.BookId → Books.BookId
-- Loans.MemberId → Members.MemberId
+- Borrows.BookId → Books.BookId
+- Borrows.MemberId → Members.MemberId
 
 ---
 
@@ -57,38 +61,15 @@ Foreign Keys:
 
 ### Books
 - GET    /api/books
-- GET    /api/books/{id}
 - POST   /api/books
-- PUT    /api/books/{id}
-- DELETE /api/books/{id}
 
 ### Members
-- GET    /api/members
 - POST   /api/members
+- PUT    /api/members/{id}
 
 ### Borrow
 - POST   /api/borrow/borrow
 - POST   /api/borrow/return
-- GET    /api/borrow
-
----
-
-## Object-Oriented Principles Applied
-
-- **Encapsulation**  
-  Each entity exposes only necessary properties and behaviors.
-
-- **Abstraction**  
-  Service and Repository interfaces hide implementation details.
-
-- **Inheritance**  
-  Common base entities and shared logic are reused.
-
-- **Polymorphism**  
-  Interfaces allow multiple implementations and flexible dependency injection.
-
-- **Single Responsibility Principle (SRP)**  
-  Controllers, Services, Repositories, and Domain Models each handle one responsibility.
 
 ---
 
