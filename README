@@ -1,0 +1,28 @@
+# Library Management System - Web API (.NET 8)
+
+## Overview
+This project is a basic Library Management System built using ASP.NET Core Web API (.NET 8).  
+It demonstrates clean architecture, object-oriented design principles, and RESTful API best practices.
+
+The system allows:
+- Managing books and members
+- Borrowing and returning books
+- Tracking loan records
+
+This project is implemented as part of a technical assessment.
+
+---
+
+## Tech Stack
+- .NET 8 (LTS)
+- ASP.NET Core Web API
+- Entity Framework Core
+- SQL Server
+- Swagger (OpenAPI)
+
+---
+
+## Architecture
+
+The solution follows a layered (Clean Architecture) approach:
+
